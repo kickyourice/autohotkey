@@ -94,9 +94,10 @@ return
 send,^{w}
 return
 
-;;alt+l所有窗口最小化
-!l::
-send,!d
+;;lalt+l 快速定位到地址栏
+<!l::
+Send,{RAlt Down}d{RAlt Up}
+;;Msgbox, hello
 return
 ;;alt+r刷新网页
 !r::
