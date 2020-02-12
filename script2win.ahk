@@ -42,7 +42,10 @@ return
 !h::    ;;这里的 #->表示window键  w->表示字母w键					
 WinMinimize,A    ;;最小化当前窗口		
 return	  
-
+;;最小化左右窗口
+<!d::
+Send, {LWinDown}d{LWinUp}
+return
 ;;alt+k向上
 !k::   ;; !->alt键   k->字母键k
 Send {Up}   ;;输入 上 键
