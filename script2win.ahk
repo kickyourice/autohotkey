@@ -4,7 +4,8 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ;;打开everything
-<!Space::
+;;<!Space::
+#Space::
 Send, {LCtrl Down}{LShift Down}{Space Down}{Space Up}{LShift Up}{LCtrl Up}
 return
 ;;打开刚关闭的网页
@@ -12,9 +13,9 @@ return
 Send, {LShift Down}{LCtrl Down}t{LShift Up}{LCtrl Up}
 return
 ;;切换搜狗输入法
-!Space::
+<!Space::
 ;;Send, {CtrlDown}{,}{CtrlUp};;好用一半
-;;Send, {CtrlDown}{Shift}{CtrlUp}
+Send, {CtrlDown}{Shift}{CtrlUp}
 ;;Send, {ShiftDown}{Ctrl}{ShiftUp};;好用
 ;;Send, {CtrlDown}{Space}{CtrlUp};;好用
 return
