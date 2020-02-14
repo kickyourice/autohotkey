@@ -15,9 +15,9 @@ return
 ;;切换搜狗输入法
 <!Space::
 ;;Send, {CtrlDown}{,}{CtrlUp};;好用一半
-Send, {CtrlDown}{Shift}{CtrlUp}
+;;Send, {CtrlDown}{Shift}{CtrlUp}
 ;;Send, {ShiftDown}{Ctrl}{ShiftUp};;好用
-;;Send, {CtrlDown}{Space}{CtrlUp};;好用
+Send, {CtrlDown}{Space}{CtrlUp};;好用
 return
 
 ;;lalt+f搜索
