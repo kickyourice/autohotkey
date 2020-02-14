@@ -17,7 +17,7 @@ return
 ;;Send, {CtrlDown}{,}{CtrlUp};;好用一半
 ;;Send, {CtrlDown}{Shift}{CtrlUp}
 ;;Send, {ShiftDown}{Ctrl}{ShiftUp};;好用
-Send, {CtrlDown}{Space}{CtrlUp};;好用
+Send, {CtrlDown}{Space}{CtrlUp}
 return
 
 ;;lalt+f搜索
