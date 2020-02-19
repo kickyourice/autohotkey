@@ -3,6 +3,13 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+;lalt+加减号缩放
+LAlt & +::
+Send, {LControl Down}{+}{LControl Up}
+return
+LAlt & -::
+Send, {LControl Down}{-}{LControl Up}
+return
 ;lalt+q强制关闭当前程序,排除DDFC
 #If not WinActive("航空维修工程系统 - 360极速浏览器 12.0")
 <!q::
