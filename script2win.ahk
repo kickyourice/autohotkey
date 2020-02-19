@@ -124,17 +124,35 @@ return
 ^h::
 Send, {Backspace}
 return 
-;;ctrl+d向右删除
+;;ctrl+d向右删除,在Xshell页面不启用
+#If not WinActive("ahk_exe Xshell.exe") ;if the window with the ahk_class "Notepad" is active
 ^d::
 send, {Del}
 return
+#If
 ;;alt+backspace从目前位置删除到行首
 !Backspace::
 Send {Shift down}{Home}{Shift up}{Backspace}
 return
-;;ctrl+u不管在什么位置，删除本行
-^u::
+;;ctrl+u不管在什么位置，删除本行，在Xshel页面不启用
+#If not WinActive("ahk_exe Xshell.exe") ;if the window with the ahk_class "Notepad" is active
+<^u::
 Send {Home}   ;输出回车
 Send +{End}   ;输入shitf键+end键
 Send {delete}	;输入delete键
 return
+#If
+
+/*
+WinActive的另一种写完，卸载按键里面
+<^u::
+if Not WinActive("ahk_exe Xshell.exe") ;if the window with the ahk_class "Notepad" is active
+{
+    Send {Home}   ;输出回车
+    Send +{End}   ;输入shitf键+end键
+    Send {delete}	;输入delete键
+   ; MsgBox, sdfsdfsdfsdf
+}else{
+}
+return
+*/
