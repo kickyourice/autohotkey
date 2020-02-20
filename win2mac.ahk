@@ -3,6 +3,7 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+
 ;lalt+加减号缩放
 LAlt & +::
 Send, {LControl Down}{+}{LControl Up}
@@ -93,6 +94,12 @@ return
 ;;alt+v粘贴
 !v::
 send,^{v}
+return
+;;win+v清除文本格式粘贴
+#v::
+Clipboard=%Clipboard%   ; will remove formatting
+Sleep, 100   ; wait for Clipboard to update
+Send ^v
 return
 ;;alt+x剪切
 !x::
