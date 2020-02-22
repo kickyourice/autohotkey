@@ -109,10 +109,12 @@ return
 !z::
 send,^{z}
 return
-;;alt+s保存
+;alt+s保存,由于alt+s在outlook里面用于发送邮件，所以设置在outlook里面不启用
+#If not WinActive("ahk_exe OUTLOOK.EXE") 
 !s::
 send,^{s}
 return
+#If
 
 ;;alt+w关闭
 !w::
