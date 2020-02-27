@@ -3,6 +3,12 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+;如果在adobe pdf中，F9指向ctrl+h，用来显示阅读模式
+#If WinActive("ahk_exe Acrobat.exe") 
+F9::
+Send, {CtrlDown}h{CtrlUp}
+return
+#If
 
 ;alt加减号缩放
 Alt & +::
@@ -147,10 +153,12 @@ return
 ;;	send enter_name_here
 return
 
-;; ctrl+h向左删除
+;; ctrl+h向左删除，排除ctrl+h在adobe pdf中的应用
+#If not WinActive("ahk_exe Acrobat.exe") 
 ^h::
 Send, {Backspace}
 return 
+#If
 ;;ctrl+d向右删除,在Xshell应用中不启用
 #If not WinActive("ahk_exe Xshell.exe") ;if the window with the ahk_class "Notepad" is active
 ^d::
