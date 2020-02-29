@@ -167,13 +167,21 @@ return
 #If
 ;;alt+backspace从目前位置删除到行首
 !Backspace::
+Send, {LCtrl Down}{Backspace Down}{Backspace Up}{LCtrl Up}
+/*
 Send {Shift down}{Home}{Shift up}{Backspace}
+;在类似邮件应用中如果不加入以下内容，会导致本行换行符也被删除，但是在vscode中不会，所以排除掉vscode
+if Not WinActive("ahk_exe Code.exe") 
+{
+    Send, {Enter}
+    Send, {Up}
+}
+*/
 return
 ;;ctrl+u，删除从光标位置到行首的内容，在Xshel应用中不启用
 #If not WinActive("ahk_exe Xshell.exe") ;if the window with the ahk_class "Notepad" is active
 <^u::
-Send, {ShiftDown}{Home}
-Send {delete}	;输入delete键
+Send, {LCtrl Down}{Backspace Down}{Backspace Up}{LCtrl Up}
 return
 #If
 ;ctrl+k 删除从光标位置到行尾的内容，在Xshell应用中不启用
