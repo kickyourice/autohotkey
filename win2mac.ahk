@@ -29,10 +29,9 @@ Send, {LAlt Down}{F4}{LAlt Up}
 Return
 
 ;;打开everything
-;;<!Space::
-#Space::
-Send, {LCtrl Down}{LShift Down}{Space Down}{Space Up}{LShift Up}{LCtrl Up}
-return
+;#Space::
+;Send, {LCtrl Down}{LShift Down}{Space Down}{Space Up}{LShift Up}{LCtrl Up}
+;return
 ;;打开刚关闭的网页
 <!<+t::
 Send, {LShift Down}{LCtrl Down}t{LShift Up}{LCtrl Up}
