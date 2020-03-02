@@ -3,6 +3,7 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+
 ;如果在adobe pdf中，F1指向ctrl+h，用来显示阅读模式,已在下文中的ctrl+h代码块中删除了ctrl+h删除功能在adobe pdf中的应用
 #If WinActive("ahk_exe Acrobat.exe") 
 F1::
@@ -32,38 +33,38 @@ Return
 #Space::
 Send, {LCtrl Down}{LShift Down}{Space Down}{Space Up}{LShift Up}{LCtrl Up}
 return
-;;打开刚关闭的网页
+;打开刚关闭的网页
 <!<+t::
 Send, {LShift Down}{LCtrl Down}t{LShift Up}{LCtrl Up}
 return
-;;切换搜狗输入法
+;切换搜狗输入法
 <!Space::
-;;Send, {CtrlDown}{,}{CtrlUp};;好用一半
-;;Send, {CtrlDown}{Shift}{CtrlUp}
-;;Send, {ShiftDown}{Ctrl}{ShiftUp};;好用
+;Send, {CtrlDown}{,}{CtrlUp};;好用一半
+;Send, {CtrlDown}{Shift}{CtrlUp}
+;Send, {ShiftDown}{Ctrl}{ShiftUp};;好用
 Send, {CtrlDown}{Space}{CtrlUp}
 return
 
-;;lalt+f搜索
+;lalt+f搜索
 <!f::
-;;Send, >^f;;这样写会导致输出》
+;Send, >^f;;这样写会导致输出》
 Send, {RControl down}f{RControl up}
 return
-;;lctrl+f右移
+;lctrl+f右移
 <^f:: 
 Send {Right} 
 return
 
-;;lalt+a全选
+;lalt+a全选
 <!a::
 send,{RCtrl Down}a{RCtrl Up}
 return
-;;lctrl+a最左
+;lctrl+a最左
 <^a::
 Send {Home}
 return
 
-;;隐藏当前窗口
+;隐藏当前窗口
 !h::    ;;这里的 #->表示window键  w->表示字母w键					
 WinMinimize,A    ;;最小化当前窗口		
 return	  
@@ -71,50 +72,50 @@ return
 <!d::
 Send, {LWinDown}d{LWinUp}
 return
-;;alt+k向上
+;alt+k向上
 !k::   ;; !->alt键   k->字母键k
 Send {Up}   ;;输入 上 键
 return
-;;alt+j向下
+;alt+j向下
 !j::
 Send {Down}
 return
-;;ctrl+b向左
+;ctrl+b向左
 ^b::
 Send {Left}
 return
-;;lalt+左键最左
+;lalt+左键最左
 LAlt & Left::
 Send {Home}
 return
-;;lalt+右键最右
+;lalt+右键最右
 LAlt & Right::
 Send {End}
 return
-;;ctrl+e最右
+;ctrl+e最右
 ^e::
 Send {End}
 return
 
-;;alt+c复制
+;alt+c复制
 !c::
 send,^{c}
 return
-;;alt+v粘贴
+;alt+v粘贴
 !v::
 send,^{v}
 return
-;;win+v清除文本格式粘贴
+;win+v清除文本格式粘贴
 #v::
 Clipboard=%Clipboard%   ; will remove formatting
 Sleep, 100   ; wait for Clipboard to update
 Send ^v
 return
-;;alt+x剪切
+;alt+x剪切
 !x::
 send,^{x}
 return
-;;alt+z恢复上次动作
+;alt+z恢复上次动作
 !z::
 send,^{z}
 return
@@ -125,46 +126,45 @@ send,^{s}
 return
 ;#If
 
-;;alt+w关闭
+;alt+w关闭
 !w::
 send,^{w}
 return
 
-;;lalt+l 快速定位到地址栏
+;lalt+l 快速定位到地址栏
 <!l::
 Send,{RAlt Down}d{RAlt Up}
-;;Msgbox, hello
 return
-;;alt+r刷新网页
+;alt+r刷新网页
 !r::
 send,{f5}
 return
-;;alt+t新建窗口或新浏览器标签
+;alt+t新建窗口或新浏览器标签
 !t::
 send,^{t}
 return
 
-;;热键，且不需要输入结束符直接出结果
+;热键，且不需要输入结束符直接出结果
 :*:mm::
-;;	send enter_passwd_here
+;	send enter_passwd_here
 return
 :*:mz::
-;;	send enter_name_here
+;	send enter_name_here
 return
 
-;; ctrl+h向左删除，排除ctrl+h在adobe pdf中的应用
+; ctrl+h向左删除，排除ctrl+h在adobe pdf中的应用
 #If not WinActive("ahk_exe Acrobat.exe") 
 ^h::
 Send, {Backspace}
 return 
 #If
-;;ctrl+d向右删除,在Xshell应用中不启用
+;ctrl+d向右删除,在Xshell应用中不启用
 #If not WinActive("ahk_exe Xshell.exe") ;if the window with the ahk_class "Notepad" is active
 ^d::
 send, {Del}
 return
 #If
-;;alt+backspace从目前位置删除到行首
+;alt+backspace从目前位置删除到行首
 !Backspace::
 Send, {ShiftDown}{Home}
 Send {delete}	;输入delete键
