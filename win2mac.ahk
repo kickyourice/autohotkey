@@ -3,6 +3,11 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+;putty中ctrl+L是清屏动作，将ctrl+l指向ctrl+L
+LCtrl & l::
+Send ^+{l}
+return
+
 ;如果在adobe pdf中，F1指向ctrl+h，用来显示阅读模式,已在下文中的ctrl+h代码块中删除了ctrl+h删除功能在adobe pdf中的应用
 #If WinActive("ahk_exe Acrobat.exe") 
 F1::
