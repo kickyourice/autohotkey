@@ -37,7 +37,8 @@ return
 Send, {LShift Down}{LCtrl Down}t{LShift Up}{LCtrl Up}
 return
 ;切换搜狗输入法
-<!Space::
+;<!Space::
+LAlt & Space::
 ;Send, {CtrlDown}{,}{CtrlUp};;好用一半
 ;Send, {CtrlDown}{Shift}{CtrlUp}
 ;Send, {ShiftDown}{Ctrl}{ShiftUp};;好用
@@ -101,8 +102,14 @@ return
 send,^{c}
 return
 ;alt+v粘贴
+;发现putty中用鼠标右键粘贴，所以将alt+v指向鼠标右键
 !v::
-send,^{v}
+if WinActive("ahk_exe putty.exe") 
+{
+    Send, {RButton}
+}else{
+    send,^{v}
+}
 return
 ;win+v清除文本格式粘贴
 #v::
