@@ -102,9 +102,9 @@ return
 send,^{c}
 return
 ;alt+v粘贴
-;发现putty中用鼠标右键粘贴，所以将alt+v指向鼠标右键
+;如果当前窗口是putty，粘贴动作变成鼠标右键，所以putty窗口中，将alt+v指向鼠标右键
 !v::
-if WinActive("ahk_exe putty.exe") 
+if WinActive("ahk_class PuTTY") 
 {
     Send, {RButton}
 }else{
@@ -165,7 +165,10 @@ Send, {Backspace}
 return 
 #If
 ;ctrl+d向右删除,在Xshell应用中不启用
-#If not WinActive("ahk_exe Xshell.exe") ;if the window with the ahk_class "Notepad" is active
+;ctrl+d向右删除,在putty窗口中不启用
+#If not WinActive("ahk_exe Xshell.exe") 
+;#If not WinActive("ahk_exe putty.exe") 
+#If not WinActive("ahk_class PuTTY") 
 ^d::
 send, {Del}
 return
@@ -185,15 +188,19 @@ if Not WinActive("ahk_exe Code.exe")
 }
 */
 return
-;;ctrl+u，删除从光标位置到行首的内容，在Xshel应用中不启用
-#If not WinActive("ahk_exe Xshell.exe") ;if the window with the ahk_class "Notepad" is active
+;ctrl+u，删除从光标位置到行首的内容，在Xshel应用中不启用
+;ctrl+u 删除从光标到行首,在putty窗口中不启用
+#If not WinActive("ahk_exe Xshell.exe") 
+#If not WinActive("ahk_class PuTTY") 
 <^u::
 Send, {ShiftDown}{Home}
 Send {delete}
 return
 #If
 ;ctrl+k 删除从光标位置到行尾的内容，在Xshell应用中不启用
-#If not WinActive("ahk_exe Xshell.exe") ;if the window with the ahk_class "Notepad" is active
+;ctrl+k 删除从光标位置到行尾的内容,在putty窗口中不启用
+#If not WinActive("ahk_exe Xshell.exe")
+#If not WinActive("ahk_class PuTTY") 
 <^k::
 Send, {ShiftDown}{End}
 Send {delete}	;输入delete键
